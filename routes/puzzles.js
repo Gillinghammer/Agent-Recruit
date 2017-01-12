@@ -14,6 +14,8 @@ router.post('/1', puzzles.update );
 router.get('/2', function(req, res, next) {
   res.render('two');
 });
+router.post('/2', puzzles.update );
+
 router.get('/3', function(req, res, next) {
   res.send('puzzle three template');
 });
