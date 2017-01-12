@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div(class="inner cover")
+    div(id="puzzle-section", class="row")
+      each val in data
+        div(class="col-sm-3")
+          a(href="/puzzles/"+ val["url"])
+            - var klass = ( val["pass"] ? ' solved' : '' )
+            i(class="fa fa-" + val["icon"] + klass)
+    h1(class="cover-heading") Will You Escape?
+    p(class="lead") Welcome to The Anafdvo Online Escape room. Do you have what it takes to escape?
+    p(class="lead") You'll only have 48 hours to complete the game once you begin!
+    p(class="lead") <a href="#" class="btn btn-lg btn-secondary">Begin!</a>

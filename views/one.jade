@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div(class="inner cover")
+    h1(class="cover-heading") Puzzle One
+    p(class="lead") First Question
+    form(action="./1", method="post")
+      .form-group
+        label(for='birthDate') Enter your birth date
+        input#birthDate.form-control(type='date', name="data[birthDate]")
+      .form-group
+        label(for='passport') Passport Number
+        input#passport.form-control(type='text', name="data[passport]")
+      .form-group
+        label(for='exampleSelect1') Least Favorite Pizza Topping
+        select#exampleSelect1.form-control(name="data[pizza]")
+          option Cheese
+          option Pineapple
+          option Bacon
+          option Onions
+          option Cheese again
+      button.btn.btn-primary(type='submit') Submit
+  p(class="lead") Form Message: #{ msg }

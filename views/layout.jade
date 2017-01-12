@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    title= title
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/cover_theme.css')
+  body
+    div(class="site-wrapper")
+          div(class="site-wrapper-inner")
+            div(class="cover-container")
+              div(class="masthead clearfix")
+                div(class="inner")
+                  h3(class="masthead-brand")= title
+                  nav(class="nav nav-masthead")
+                    a(class="nav-link active", href="/") Dashboard
+              block content
+              div(class="mastfoot")
+                div(class="inner")
+                  p bla blah copyright 2017
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js", integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=", crossorigin="anonymous")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js", integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn", crossorigin="anonymous")
