@@ -12,7 +12,7 @@ router.get('/1', function(req, res, next) {
 router.post('/1', puzzles.update );
 
 router.get('/2', function(req, res, next) {
-  res.send('puzzle two template');
+  res.render('two');
 });
 router.get('/3', function(req, res, next) {
   res.send('puzzle three template');
