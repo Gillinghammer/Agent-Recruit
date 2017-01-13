@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var puzzles = require('./routes/puzzles');
 var mongoose = require('mongoose');
+var Games = require('./models/game');
 
 var app = express();
 
@@ -29,6 +30,15 @@ db.once('open', function() {
         cert: fs.readFileSync('cert.pem')
       }, app).listen(12345);
 
+
+  var getTime = function (req, res, next) {
+    Games.findOne({}, function(err, data){
+      console.log("timer: ", data.start)
+      res.locals.timer = data.start;
+    })
+    next()
+  }
+
   // local app variables
   app.locals.title = "Online Escape";
 
@@ -38,6 +48,7 @@ db.once('open', function() {
 
   // uncomment after placing your favicon in /public
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+  app.use(getTime);
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));

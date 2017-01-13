@@ -13,18 +13,18 @@ block content
       #dashboard.hidden
         .progress.progress-striped
           .progress-bar.progress-bar-danger(style="width: #{ complete }%" )
-        h1 Dashboard
+        h3#timer= start
         table.table.table-striped.table-hover
           thead
             tr
               th #
-              th Mission Code Name
+              th Objectives
               th Status
               th
           tbody
             tr(class=" #{ data[0].pass ? 'info' : '' } ")
               td 1
-              td Authenticate
+              td <a href="/puzzles/1">Authenticate</a>
               td #{ data[0].pass ? 'Complete' : 'Incomplete' }
               if data[0].pass
                 td
@@ -32,7 +32,7 @@ block content
                 td <a href="/puzzles/1">Click to start</a>
             tr(class=" #{ data[1].pass ? 'info' : '' } ")
               td 2
-              td Encryption
+              td <a href="/puzzles/2">Encryption</a>
               td #{ data[1].pass ? 'Complete' : 'Incomplete' }
               if data[1].pass
                 td
@@ -40,7 +40,7 @@ block content
                 td <a href="/puzzles/2">Click to start</a>
             tr(class=" #{ data[2].pass ? 'info' : '' } ")
               td 3
-              td Geo-Location
+              td <a href="/puzzles/3">Geo-Location</a>
               td #{ data[2].pass ? 'Complete' : 'Incomplete' }
               if data[2].pass
                 td
@@ -48,7 +48,7 @@ block content
                 td <a href="/puzzles/3">Click to start</a>
             tr(class=" #{ data[3].pass ? 'info' : '' } ")
               td 4
-              td Culture
+              td <a href="/puzzles/4">Culture</a>
               td #{ data[3].pass ? 'Complete' : 'Incomplete' }
               if data[3].pass
                 td
@@ -56,6 +56,20 @@ block content
                 td <a href="/puzzles/4">Click to start</a>
   script.
     $(document).ready(function(){
+
+      $.get('/game', function(data) {
+        console.log(data.start)
+        var startTime = new Date(data.start)
+        var deadline= new Date ( startTime );
+        deadline.setHours ( startTime.getHours() + 48 );
+        $("#timer")
+          .countdown(deadline, function(event) {
+            $(this).text(
+              "Time Remaining: " + event.strftime('%H:%M:%S')
+            );
+          });
+      })
+
       $("#authenticate").on("click", function(event){
         $("#intro").addClass("animated fadeOutUp");
         setTimeout(function(){
@@ -64,4 +78,5 @@ block content
           $("#dashboard").removeClass("hidden");
         }, 2000);
       })
+
     });

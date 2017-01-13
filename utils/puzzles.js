@@ -10,7 +10,8 @@ module.exports = {
           if( data[i].pass )
             completed++;
         }
-        res.render("index", { data: data, complete: (completed/4)*100 } );
+        console.log("locals timer: ", res.locals.timer)
+        res.render("index", { data: data, complete: (completed/4)*100, start: res.locals.timer });
     });
   },
   update: function(req, res){
