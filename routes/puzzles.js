@@ -17,10 +17,13 @@ router.get('/2', function(req, res, next) {
 router.post('/2', puzzles.update );
 
 router.get('/3', function(req, res, next) {
-  res.send('puzzle three template');
+  res.render('three');
 });
+router.post('/3', puzzles.update );
+
 router.get('/4', function(req, res, next) {
-  res.send('puzzle four template');
+  res.render('four');
 });
+router.post('/4', puzzles.update );
 
 module.exports = router;

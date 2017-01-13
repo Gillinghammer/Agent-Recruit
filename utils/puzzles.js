@@ -9,9 +9,6 @@ module.exports = {
     });
   },
   update: function(req, res){
-    console.log("req params: ", req.url.slice(-1) )
-    console.log("req body", req.body)
-
     switch( req.url.slice(-1) ) {
         case "1":
             if(req.body.data.birthDate === '1988-06-16' && req.body.data.passport === "N872598" && req.body.data.pizza === "Onions") {
@@ -24,10 +21,9 @@ module.exports = {
                 } else {
                   res.render("one", { msg: "Try Again!" })
                 }
-            // break;
+            break;
         case "2":
             console.log("game 2 submit")
-            console.log(req.body.data.answer)
             if(req.body.data.answer.toLowerCase() === "belle" ) {
               Puzzles.findOne({ game: req.url.slice(-1) }, function (err, doc){
                 doc.pass = true;
@@ -37,15 +33,46 @@ module.exports = {
             } else {
               res.render("two", { msg: "Try Again!" })
             }
-
-        case "3":
-            console.log("game 3 submit")
             break;
+        case "3":
+          if(req.body.distance <= 1 ) {
+            Puzzles.findOne({ game: req.url.slice(-1) }, function (err, doc){
+              doc.pass = true;
+              doc.save();
+              res.send({redirect: '/'});
+            });
+          } else {
+            res.send({redirect: '/puzzles/3'});
+          }
+          break;
         case "4":
             console.log("game 4 submit")
+            if(req.body.data.painter.toLowerCase() == "vincent van gogh") {
+              Puzzles.findOne({ game: req.url.slice(-1) }, function (err, doc){
+                doc.pass = true;
+                doc.save();
+                res.redirect("/")
+              });
+            } else {
+              res.render("four", { msg: "Search for Reverse Image search tools, perhaps?" })
+            }
             break;
         default:
             console.log("default hit on switch statement...")
+            break;
     }
+  },
+  reset: function(req, res){
+
+    Puzzles.find({}, function (err, docs){
+
+      docs.forEach(function(record) {
+          record.pass = false;
+          record.save()
+      });
+
+      res.redirect("/")
+    });
+
   }
 };

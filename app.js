@@ -1,3 +1,5 @@
+var fs = require('fs');
+var https = require('https');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -10,15 +12,25 @@ var mongoose = require('mongoose');
 
 var app = express();
 
+https.createServer({
+      key: fs.readFileSync('key.pem'),
+      cert: fs.readFileSync('cert.pem')
+    }, app).listen(3000);
+
 mongoose.connect('mongodb://admin:admin@ds011382.mlab.com:11382/anaescape');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // we're connected!
   console.log("db connected!");
-  
+
+  https.createServer({
+        key: fs.readFileSync('key.pem'),
+        cert: fs.readFileSync('cert.pem')
+      }, app).listen(12345);
+
   // local app variables
-  app.locals.title = "Ana's Online Escape";
+  app.locals.title = "Online Escape";
 
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
@@ -43,7 +55,6 @@ db.once('open', function() {
   });
 
   // error handlers
-
   // development error handler
   // will print stacktrace
   if (app.get('env') === 'development') {
