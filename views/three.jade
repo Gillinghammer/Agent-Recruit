@@ -31,7 +31,6 @@ block content
       }
     }
     function showPosition(position) {
-      alert('showing position');
       var distance = getDistanceFromLatLonInKm(savedLat,savedLong,position.coords.latitude,position.coords.longitude)
       x.innerHTML = "<br>You are " + Math.round((distance*1000)) + " meters away.";
       submitDistance(distance)

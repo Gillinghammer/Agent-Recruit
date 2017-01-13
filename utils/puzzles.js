@@ -5,7 +5,12 @@ module.exports = {
   all: function(req, res){
     Puzzles.find({}, function(err, data){
         if(err) res.send(err);
-        res.render("index", { data } );
+        var completed = 0;
+        for( var i = 0; i < data.length; ++i ){
+          if( data[i].pass )
+            completed++;
+        }
+        res.render("index", { data: data, complete: (completed/4)*100 } );
     });
   },
   update: function(req, res){

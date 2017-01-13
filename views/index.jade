@@ -1,13 +1,67 @@
 extends layout
 
 block content
-  div(class="inner cover")
-    div(id="puzzle-section", class="row")
-      each val in data
-        div(class="col-sm-3")
-          a(href="/puzzles/"+ val["url"])
-            - var klass = ( val["pass"] ? ' solved' : '' )
-            i(class="fa fa-" + val["icon"] + klass)
-    h1(class="cover-heading") Will You Escape?
-    p(class="lead") Welcome to The Anafdvo Online Escape room. Do you have what it takes to escape?
-    p(class="lead") You'll only have 48 hours to complete the game once you begin!
+  .row
+    .col-lg-12
+      #intro.jumbotron
+        h1 For Ana's eyes only!
+        p You're being recruited by an elite special forces for a mission of critical importance. Your reputation of intelligent seductress who can think quickly on her feet make you the number one candidate. All we ask is that you confirm your identity by completing the following challenges.
+        p Once you begin, you'll have 12 hours to complete before this site self-destructs.
+        a#authenticate.btn.btn-primary.btn-lg Begin Authentication
+  .row
+    .col-lg-12
+      #dashboard.hidden
+        .progress.progress-striped
+          .progress-bar.progress-bar-danger(style="width: #{ complete }%" )
+        h1 Dashboard
+        table.table.table-striped.table-hover
+          thead
+            tr
+              th #
+              th Mission Code Name
+              th Status
+              th
+          tbody
+            tr(class=" #{ data[0].pass ? 'info' : '' } ")
+              td 1
+              td Authenticate
+              td #{ data[0].pass ? 'Complete' : 'Incomplete' }
+              if data[0].pass
+                td
+              else
+                td <a href="/puzzles/1">Click to start</a>
+            tr(class=" #{ data[1].pass ? 'info' : '' } ")
+              td 2
+              td Encryption
+              td #{ data[1].pass ? 'Complete' : 'Incomplete' }
+              if data[1].pass
+                td
+              else
+                td <a href="/puzzles/2">Click to start</a>
+            tr(class=" #{ data[2].pass ? 'info' : '' } ")
+              td 3
+              td Geo-Location
+              td #{ data[2].pass ? 'Complete' : 'Incomplete' }
+              if data[2].pass
+                td
+              else
+                td <a href="/puzzles/3">Click to start</a>
+            tr(class=" #{ data[3].pass ? 'info' : '' } ")
+              td 4
+              td Culture
+              td #{ data[3].pass ? 'Complete' : 'Incomplete' }
+              if data[3].pass
+                td
+              else
+                td <a href="/puzzles/4">Click to start</a>
+  script.
+    $(document).ready(function(){
+      $("#authenticate").on("click", function(event){
+        $("#intro").addClass("animated fadeOutUp");
+        setTimeout(function(){
+          //- $("#dashboard").removeClass("hidden");
+          $("#intro").addClass("hidden");
+          $("#dashboard").removeClass("hidden");
+        }, 2000);
+      })
+    });
