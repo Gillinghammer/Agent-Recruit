@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div(class="inner cover")
+    h1(class="cover-heading") Art Appreciation
+    img(src="/images/skeletor.jpg", style="max-width:300px;")
+    form(action="./4", method="post")
+      .form-group
+        label(for='painter') Who is the Painter?
+        input#painter.form-control(type='text', name="data[painter]")
+      button.btn.btn-primary(type='submit') Submit
+  p(class="lead") #{ msg }
