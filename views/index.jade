@@ -3,16 +3,7 @@ extends layout
 block content
   .row
     .col-lg-12
-      #intro.jumbotron
-        h1 For Ana's eyes only!
-        p You're being recruited by an elite special forces for a mission of critical importance. Your reputation of intelligent seductress who can think quickly on her feet make you the number one candidate. All we ask is that you confirm your identity by completing the following challenges.
-        p Once you begin, you'll have 12 hours to complete before this site self-destructs.
-        a#authenticate.btn.btn-primary.btn-lg Begin Authentication
-  .row
-    .col-lg-12
-      #dashboard.hidden
-        .progress.progress-striped
-          .progress-bar.progress-bar-danger(style="width: #{ complete }%" )
+      #dashboard
         h3#timer= start
         table.table.table-striped.table-hover
           thead
@@ -54,6 +45,8 @@ block content
                 td
               else
                 td <a href="/puzzles/4">Click to start</a>
+        .progress.progress-striped
+          .progress-bar.progress-bar-info(style="width: #{ complete }%" )
   script.
     $(document).ready(function(){
 
@@ -61,22 +54,13 @@ block content
         console.log(data.start)
         var startTime = new Date(data.start)
         var deadline= new Date ( startTime );
-        deadline.setHours ( startTime.getHours() + 48 );
+        deadline.setHours ( startTime.getHours() + 3 );
         $("#timer")
           .countdown(deadline, function(event) {
             $(this).text(
               "Time Remaining: " + event.strftime('%H:%M:%S')
             );
           });
-      })
-
-      $("#authenticate").on("click", function(event){
-        $("#intro").addClass("animated fadeOutUp");
-        setTimeout(function(){
-          //- $("#dashboard").removeClass("hidden");
-          $("#intro").addClass("hidden");
-          $("#dashboard").removeClass("hidden");
-        }, 2000);
       })
 
     });

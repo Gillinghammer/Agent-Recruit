@@ -5,7 +5,16 @@ var mongoose = require('mongoose');
 var Games =  require('../models/game');
 
 /* GET home page. */
-router.get('/', puzzles.all );
+router.get('/', function(req,res,next){
+  Games.findOne({}, function (err, doc){
+    if(doc.start === null ) {
+      res.render('welcome');
+    } else {
+      res.redirect('/dashboard')
+    }
+  });
+});
+router.get('/dashboard', puzzles.all );
 router.get('/reset', puzzles.reset )
 router.get('/game', function(req,res) {
   Games.findOne({}, function (err, doc){

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Puzzles = require("../models/puzzle");
+var Games = require("../models/game");
 
 module.exports = {
   all: function(req, res){
@@ -71,10 +72,13 @@ module.exports = {
   reset: function(req, res){
 
     Puzzles.find({}, function (err, docs){
-
       docs.forEach(function(record) {
           record.pass = false;
           record.save()
+      });
+      Games.findOne({}, function (err, doc){
+        doc.start = null;
+        doc.save();
       });
 
       res.redirect("/")
