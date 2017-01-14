@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  .row.animated.fadeIn
+  .row
     .col-lg-12
       #dashboard
         h3#timer= start
         h3 Your objectives
-        table.table.table-striped.table-hover
+        table.objectives.table.table-striped.table-hover
           thead
             tr
               th #
@@ -55,12 +55,18 @@ block content
         console.log(data.start)
         var startTime = new Date(data.start)
         var deadline= new Date ( startTime );
-        deadline.setHours ( startTime.getHours() + 3 );
+        //- deadline.setHours ( startTime.getHours() + 3 );
+        //- deadline.setMinutes ( startTime.getMinutes() + 2 );
+        deadline = new Date(startTime.getTime() + 1*60000);
+        console.log("deadline: ", deadline)
         $("#timer")
           .countdown(deadline, function(event) {
             $(this).text(
               "self destruct in: " + event.strftime('%H:%M:%S')
             );
+          }).on('finish.countdown', function() {
+                $("#timer").text("Time is up");
+                $('.objectives').addClass('hidden');
           });
       })
 

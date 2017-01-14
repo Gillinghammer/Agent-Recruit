@@ -17,11 +17,6 @@ h1 a {
 h3#timer {
   color: $brand-warning;
 }
-
-.form-control {
-  max-width: 500px !important;
-}
-
 .alert-warning {
     margin-top: 20px !important;
   }
@@ -47,7 +42,6 @@ and (max-device-width : 667px) {
       font-size: 1em;
     }
   .well {
-
     p {
       font-size: 1em;
     }
@@ -60,6 +54,5 @@ and (max-device-width : 667px) {
   }
   h3#timer {
     font-size: 1em;
-  }
-        
+  }       
 }

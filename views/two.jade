@@ -4,24 +4,28 @@ block content
   div(class="inner cover")
     h3(class="cover-heading") Encrypted
     div(class="row")
-      div(class="col-sm-12")
+      div(class="col-sm-8")
         .well.well-lg
           p(id="encrypted")
-    form(action="./2", method="post")
-      .form-group
-        label(for='key') Decoder Key
-        input#key.form-control.input-lg(type='text', name="data[key]" )
-        span.help-block hint: Para Lisboa FR1882
-      .control-group
-        button(id="decode", class="btn btn-info btn-lg", type="button") Decode
-      div
-        p(id="result")
-      .form-group
-        label(for='answer') Submit your answer to the riddle
-        input#answer.form-control.input-lg(type='text', name="data[answer]" )
-      .control-group
-        button.btn.btn-primary.btn-lg(type='submit') Submit!
-      br
+    .row
+      .col-sm-4
+        form(action="./2", method="post")
+          .form-group
+            label(for='key') Decoder Key
+            .input-group
+              input#key.form-control.input-lg(type='text', name="data[key]" )
+              span.input-group-btn
+                button#decode.btn.btn-info.btn-lg(type='button') Decode!
+            span.help-block hint: Para Lisboa FR1882
+          div
+            p(id="result")
+          .form-group
+            label(for='answer') Submit your answer to the riddle
+          .input-group
+            input#answer.form-control.input-lg(type='text', name="data[answer]" )
+            span.input-group-btn
+              button.btn.btn-primary.btn-lg(type='submit') Submit!
+          br
       p(class="text-danger") #{ msg }
   script.
     $(document).ready(function(){

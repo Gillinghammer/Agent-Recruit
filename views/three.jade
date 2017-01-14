@@ -1,17 +1,18 @@
 extends layout
 
 block content
-  div(class="inner cover")
-    h3(class="cover-heading") Check-in at these locations
-    .panel.panel-default
-      .panel-body
-        img(src="/images/pinkdoor.jpg", width="300px")
-        br
-        br
-        button(id="send", class="btn btn-primary btn-lg") Send Coordinates
-      .panel-footer
-        p#response
-        p#error
+  .row
+    .col-sm-4
+      h3(class="cover-heading") Check In Here
+      .panel.panel-default
+        .panel-body
+          img(src="/images/pinkdoor.jpg", width="100%")
+          br
+          br
+          button(id="send", class="btn btn-primary btn-lg btn-block") Send Coordinates
+        .panel-footer
+          p#response
+          p#error
   script.
     var savedLat = 51.514990
     var savedLong = -0.199630

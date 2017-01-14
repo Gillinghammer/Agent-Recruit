@@ -1,24 +1,26 @@
 extends layout
 
 block content
-  div(class="inner cover")
-    h3(class="cover-heading") Confirm Your Identity
-    form(action="./1", method="post")
-      .form-group
-        label(for='birthDate') Enter your birth date
-        input#birthDate.form-control.input-lg(type='date', name="data[birthDate]")
-      .form-group
-        label(for='passport') Passport Number
-        input#passport.form-control.input-lg(type='text', name="data[passport]")
-      .form-group
-        label(for='exampleSelect1') Least Favorite Pizza Topping
-        select#exampleSelect1.form-control.input-lg(name="data[pizza]")
-          option Cheese
-          option Pineapple
-          option Bacon
-          option Onions
-          option Cheese again
-      button.btn.btn-primary.btn-lg(type='submit') Submit
+  .row
+    .col-sm-4
+      h3(class="cover-heading") Confirm Your Identity
+      form(action="./1", method="post")
+        .form-group
+          label(for='birthDate') Enter your birth date
+          input#birthDate.form-control.input-lg(type='date', name="data[birthDate]")
+        .form-group
+          label(for='passport') Passport Number
+          input#passport.form-control.input-lg(type='text', name="data[passport]")
+        .form-group
+          label(for='exampleSelect1') Least Favorite Pizza Topping
+          select#exampleSelect1.form-control.input-lg(name="data[pizza]")
+            option Cheese
+            option Pineapple
+            option Bacon
+            option Onions
+            option Cheese again
+        br
+        button.btn.btn-primary.btn-lg.btn-block(type='submit') Submit
   br
   p(class="text-danger") #{ msg }
   script.

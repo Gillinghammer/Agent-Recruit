@@ -1,19 +1,23 @@
 extends layout
 
 block content
-  div(class="inner cover")
-    h3(class="cover-heading") Fine Print
-    br
-    blockquote
-      p They are not long, the days of wine and rose. Out of a misty dream, our path emerges for a while, then close within a dream.
-      small Dowson, Ernest quoted in <cite title="Source Title">The Outsider</cite>
-    </blockquote>
-    form(action="./4", method="post")
-      .form-group
-        br
-        label(for='answer') You'll find the 7 digit code on the back of your new book
-        input#answer.form-control.input-lg(type='text', name="data[answer]")
-      button.btn.btn-primary.btn-lg(type='submit') Submit
+  .row
+    .col-sm-8
+      h3(class="cover-heading") Fine Print
+      br
+      blockquote
+        p They are not long, the days of wine and rose. Out of a misty dream, our path emerges for a while, then close within a dream.
+        small Dowson, Ernest quoted in <cite title="Source Title">The Outsider</cite>
+  .row
+    .col-sm-4
+      form(action="./4", method="post")
+        .form-group
+          br
+          label(for='answer') You'll find the 7 digit code on the back of your new book
+          .input-group
+            input#answer.form-control.input-lg(type='text', name="data[answer]")
+            span.input-group-btn
+              button.btn.btn-primary.btn-lg(type='submit') Submit!
   br
   p(class="text-danger") #{ msg }
   script.
