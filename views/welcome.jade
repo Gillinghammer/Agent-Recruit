@@ -10,18 +10,25 @@ block content
         a#authenticate.btn.btn-primary.btn-lg.hidden(href="/dashboard") Begin Authentication
   script.
     $(function(){
+
+      $("#authenticate").on("click", function(e){
+        $.post( "/start", function( data ) {
+          console.log('req sent to start timer')
+        });
+      })
+
       $("#intro").typed({
-          strings: ["For Ana's eyes only"],
+          strings: ["Classified..."],
           typeSpeed: 0,
           showCursor: false,
           onStringTyped: function() {
             $(".intro-text").typed({
-                strings: ["You're being recruited by an elite special forces for a mission of critical importance. Your reputation of intelligent seductress who can think quickly on her feet make you the number one candidate. All we ask is that you confirm your identity by completing the following challenges."],
+                strings: ["You're being recruited by an elite special forces unit for a mission of critical importance. The background check we ran makes you an excellent choice. Please confirm your identity by completing the following challenges."],
                 typeSpeed: 10,
                 showCursor: false,
                 onStringTyped: function() {
                   $(".instructions").typed({
-                      strings: ["Once you begin, you'll have 3 hours to complete before this site self-destructs."],
+                      strings: ["You'll have 3 hours to complete before your application site self-destructs."],
                       typeSpeed: 0,
                       showCursor: false,
                       onStringTyped: function() {

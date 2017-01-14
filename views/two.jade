@@ -29,9 +29,6 @@ block content
       p(class="text-danger") #{ msg }
   script.
     $(document).ready(function(){
-      $.post( "/start", function( data ) {
-        console.log('req sent to start timer')
-      });
       var decoderKey = "ZT8T5A"
       var decoderChars = $.map( decoderKey.split(""), function(i) {
         return i.charCodeAt(0)

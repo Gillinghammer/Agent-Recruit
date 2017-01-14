@@ -20,12 +20,9 @@ block content
 
 
     $(document).ready(function(){
-      $.post( "/start", function( data ) {
-        console.log('req sent to start timer')
+      $('#send').on('click touchstart', function() {
+          getLocation();
       });
-        $('#send').on('click touchstart', function() {
-            getLocation();
-        });
     });
 
 
