@@ -153,6 +153,9 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 body {
   font-weight: 300; }
 
+p.intro-text {
+  font-weight: 300; }
+
 .hidden {
   display: none; }
 
@@ -182,7 +185,7 @@ h3#timer {
 p, label {
   font-size: 1.6em;
   color: #ADAFAE;
-  font-weight: normal !important; }
+  font-weight: 300 !important; }
 
 #encrypted {
   color: #ADAFAE; }

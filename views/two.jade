@@ -2,7 +2,8 @@ extends layout
 
 block content
   div(class="inner cover")
-    h3(class="cover-heading") Encrypted
+    h4(class="cover-heading") Solve the riddle
+    br
     div(class="row")
       div(class="col-sm-8")
         .well.well-lg
@@ -17,18 +18,31 @@ block content
               span.input-group-btn
                 button#decode.btn.btn-info.btn-lg(type='button') Decode!
             span.help-block hint: Para Lisboa FR1882
+          br
           div
             p(id="result")
           .form-group
             label(for='answer') Submit your answer to the riddle
           .input-group
-            input#answer.form-control.input-lg(type='text', name="data[answer]" )
+            input#answer.form-control.input-lg(type='text', name="data[answer]", disabled )
             span.input-group-btn
-              button.btn.btn-primary.btn-lg(type='submit') Submit!
+              button.submit-btn.btn.btn-primary.btn-lg.disabled(type='submit') Submit!
           br
       p(class="text-danger") #{ msg }
   script.
     $(document).ready(function(){
+
+          $('#key').keyup(function(){
+              if($(this).val().length !=0) {
+                $('#answer').attr('disabled', false); 
+                $('.submit-btn').removeClass("disabled");
+              }   
+              else {
+                  $('#answer').attr('disabled',true);
+                  $('.submit-btn').addClass("disabled");
+                }
+          })
+
       var decoderKey = "ZT8T5A"
       var decoderChars = $.map( decoderKey.split(""), function(i) {
         return i.charCodeAt(0)

@@ -3,10 +3,25 @@ var router = express.Router();
 var puzzles = require('../utils/puzzles');
 var mongoose = require('mongoose');
 var Games =  require('../models/game');
+var Call =  require('../models/call');
 
 
 router.post('/phone', function(req,res,next){
-  console.log("request body: ", req.body)
+  // console.log("request body: ", req.body)
+
+  Call.create({
+    recording: req.body.RecordingUrl,
+    number: req.body.Caller
+  }, function (err, recording) {
+    if (err) return handleError(err);
+    console.log("saved call to db", recording )
+  })
+
+
+  var call = new Call({
+    recording: req.body.RecordingUrl,
+    number: req.body.Caller
+  })
   res.send({body:"ok"})
 });
 /* GET home page. */

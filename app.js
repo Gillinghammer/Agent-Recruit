@@ -67,7 +67,7 @@ db.once('open', function() {
   // uncomment after placing your favicon in /public
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(getTime);
-  app.use(checkStatus);
+  // app.use(checkStatus);
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
