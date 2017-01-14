@@ -21,8 +21,8 @@ router.post('/phone', function(req,res,next){
     console.log("saved call to db", recording )
 
   })
-  res.set('Content-Type', 'text/xml');
-  res.send({"statusCode": 200});
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end("goodbye");
 });
 /* GET home page. */
 router.get('/', function(req,res,next){
