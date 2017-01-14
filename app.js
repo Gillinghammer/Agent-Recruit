@@ -10,6 +10,7 @@ var routes = require('./routes/index');
 var puzzles = require('./routes/puzzles');
 var mongoose = require('mongoose');
 var Games = require('./models/game');
+var Puzzles = require('./models/puzzle');
 
 var app = express();
 
@@ -39,6 +40,23 @@ db.once('open', function() {
     next()
   }
 
+  var checkStatus = function (req, res, next) {
+    Puzzles.find({}, function(err, data){
+      if(err) res.send(err);
+      var completed = 0;
+      for( var i = 0; i < data.length; ++i ){
+        if( data[i].pass )
+          completed++;
+      };
+      if( completed > 3 ) {
+        // res.send("hooray you won!")
+        res.render('congrats');
+      } else {
+        next()
+      } 
+    });
+  }
+
   // local app variables
   app.locals.title = "Online Escape";
 
@@ -49,6 +67,7 @@ db.once('open', function() {
   // uncomment after placing your favicon in /public
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   app.use(getTime);
+  app.use(checkStatus);
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
