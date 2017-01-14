@@ -2,20 +2,27 @@ extends layout
 
 block content
   div(class="inner cover")
-    h1(class="cover-heading") Get Your Boots On
-    p(class="Lead") Send Your GPS coordinates from where we had our first coffee together
-    button(id="send", class="btn btn-primary btn-large") Send Coordinates
-    p(id="demo", class="lead")
-    p(id="error", class="lead") Form Message: #{ msg }
+    h3(class="cover-heading") Check-in at these locations
+    .panel.panel-default
+      .panel-body
+        img(src="/images/pinkdoor.jpg", width="350px")
+        br
+        br
+        button(id="send", class="btn btn-primary btn-lg") Send Coordinates
+      .panel-footer
+        p#response
+        p#error
   script.
-    var savedLat = 51.512356
-    var savedLong = -0.201341
-    var x = document.getElementById("demo");
+    var savedLat = 51.514990
+    var savedLong = -0.199630
+    var x = document.getElementById("response");
 
 
     $(document).ready(function(){
+      $.post( "/start", function( data ) {
+        console.log('req sent to start timer')
+      });
         $('#send').on('click touchstart', function() {
-
             getLocation();
         });
     });
@@ -36,6 +43,7 @@ block content
       submitDistance(distance)
     }
     function submitDistance(distance) {
+    console.log("distance! ", distance)
       if(distance <= .05 ){
         $.ajax({
           url: '3',

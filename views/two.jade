@@ -2,27 +2,32 @@ extends layout
 
 block content
   div(class="inner cover")
-    h1(class="cover-heading") Encrypted
-    p Look for a special number on your STN>LIS flight to decode the riddle!
+    h3(class="cover-heading") Encrypted
     div(class="row")
       div(class="col-sm-12")
-        p(id="encrypted")
+        .well.well-lg
+          p(id="encrypted")
     form(action="./2", method="post")
       .form-group
         label(for='key') Decoder Key
-        input#key.form-control(type='text', name="data[key]" )
+        input#key.form-control.input-lg(type='text', name="data[key]" )
+        span.help-block hint: Para Lisboa FR1882
       .control-group
-        button(id="decode", class="btn btn-secondary", type="button") Decode
+        button(id="decode", class="btn btn-warning btn-lg", type="button") Decode
       div
         p(id="result")
       .form-group
-        label(for='answer') What Disney beauty said this?
-        input#answer.form-control(type='text', name="data[answer]" )
+        label(for='answer') Submit your answer to the riddle
+        input#answer.form-control.input-lg(type='text', name="data[answer]" )
       .control-group
-        button.btn.btn-primary(type='submit') Submit!
-  p(class="lead") Form Message: #{ msg }
+        button.btn.btn-primary.btn-lg(type='submit') Submit!
+      br
+      p(class="text-danger") #{ msg }
   script.
     $(document).ready(function(){
+      $.post( "/start", function( data ) {
+        console.log('req sent to start timer')
+      });
       var decoderKey = "ZT8T5A"
       var decoderChars = $.map( decoderKey.split(""), function(i) {
         return i.charCodeAt(0)
@@ -32,7 +37,7 @@ block content
           decoderTotal += decoderChars[i];
       }
       //- var foo = $("#encrypted").text()
-      var secret = "I want adventure in the great wide somewhere! I want it more than I can tell!";
+      var secret = "I'm as light as a feather but the strongest of people cannot hold me for over a minute. What am I?";
       var secretChars = $.map(secret.split(""), function(i) {
         return i.charCodeAt(0)
       });
@@ -53,9 +58,8 @@ block content
       })
       console.log("your encryptedChars: ", encryptedChars )
       console.log("your encrypted Text: ", encodedText.join("") )
-      $("#encrypted").text(encodedText.join(""))
+      $("#encrypted").text("[ encrypted riddle ]: " + encodedText.join(""))
       $("#decode").on("click", function(event) {
-        console.log( $("#key").val() );
         var guessChars = $.map( $("#key").val().split(""), function(i) {
           return i.charCodeAt(0)
         } )
@@ -64,7 +68,6 @@ block content
             guessTotal += guessChars[i];
         }
         var decryptionNumber = (guessTotal / $("#key").val().split("").length) / 2
-        console.log("decryption number", decryptionNumber)
         var decryptedChars = $.map(encryptedChars, function(i) {
           if( decryptionNumber >= i ) {
            return decryptionNumber + i
@@ -75,7 +78,6 @@ block content
         var decryptedText = $.map(decryptedChars, function(i){
           return String.fromCharCode(i)
         })
-        console.log("your decrypted Text: ", decryptedText.join("").split("(").join(" ") )
-        $("#result").text(decryptedText.join("").split("(").join(" "));
+        $("#encrypted").text("[ decrypted ]: " + decryptedText.join("").split("(").join(" "));
       })
     })

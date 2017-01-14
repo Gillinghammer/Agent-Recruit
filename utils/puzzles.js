@@ -31,17 +31,19 @@ module.exports = {
             break;
         case "2":
             console.log("game 2 submit")
-            if(req.body.data.answer.toLowerCase() === "belle" ) {
+            console.log("answer", req.body.data.answer.toLowerCase())
+            if(req.body.data.answer.toLowerCase() === "breath" ) {
               Puzzles.findOne({ game: req.url.slice(-1) }, function (err, doc){
                 doc.pass = true;
                 doc.save();
                 res.redirect("/")
               });
             } else {
-              res.render("two", { msg: "Try Again!" })
+              res.render("two", { msg: "Nope... here is a hint, I can hold it for over 2 minutes" })
             }
             break;
         case "3":
+          console.log("distance: ", req.body.distance )
           if(req.body.distance <= 1 ) {
             Puzzles.findOne({ game: req.url.slice(-1) }, function (err, doc){
               doc.pass = true;
@@ -54,14 +56,14 @@ module.exports = {
           break;
         case "4":
             console.log("game 4 submit")
-            if(req.body.data.painter.toLowerCase() == "vincent van gogh") {
+            if(req.body.data.answer.toLowerCase() == "gray318") {
               Puzzles.findOne({ game: req.url.slice(-1) }, function (err, doc){
                 doc.pass = true;
                 doc.save();
                 res.redirect("/")
               });
             } else {
-              res.render("four", { msg: "Search for Reverse Image search tools, perhaps?" })
+              res.render("four", { msg: "You'll find it on the back cover" })
             }
             break;
         default:

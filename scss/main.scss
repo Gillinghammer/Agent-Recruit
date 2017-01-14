@@ -8,3 +8,58 @@
 table {
   font-size: 2em;
 }
+
+h1 a {
+  color: white;
+  font-weight: 400;
+}
+
+h3#timer {
+  color: $brand-warning;
+}
+
+.form-control {
+  max-width: 500px !important;
+}
+
+.alert-warning {
+    margin-top: 20px !important;
+  }
+
+p,label {
+  font-size: 1.6em;
+  color: $gray-lighter;
+  font-weight: normal !important;
+}
+
+#encrypted {
+  color: $gray-lighter;
+}
+
+.well p {
+  font-size: 1.4em;
+}
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+    p,label {
+      font-size: 1em;
+    }
+  .well {
+
+    p {
+      font-size: 1em;
+    }
+  }
+  table {
+    font-size: 1.2em;
+  }
+  h1, h3 {
+    font-size: 2em !important;
+  }
+  h3#timer {
+    font-size: 1em;
+  }
+        
+}

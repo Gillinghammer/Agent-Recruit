@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
 .text-primary,
 .text-primary:hover {
   color: #2A9FD6; }
@@ -155,3 +155,39 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 
 table {
   font-size: 2em; }
+
+h1 a {
+  color: white;
+  font-weight: 400; }
+
+h3#timer {
+  color: #FF8800; }
+
+.form-control {
+  max-width: 500px !important; }
+
+.alert-warning {
+  margin-top: 20px !important; }
+
+p, label {
+  font-size: 1.6em;
+  color: #ADAFAE;
+  font-weight: normal !important; }
+
+#encrypted {
+  color: #ADAFAE; }
+
+.well p {
+  font-size: 1.4em; }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  p, label {
+    font-size: 1em; }
+  .well p {
+    font-size: 1em; }
+  table {
+    font-size: 1.2em; }
+  h1, h3 {
+    font-size: 2em !important; }
+  h3#timer {
+    font-size: 1em; } }
