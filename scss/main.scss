@@ -1,6 +1,10 @@
 @import "_variables";
 @import "_bootswatch";
 
+body {
+  font-weight: 300;
+}
+
 .hidden {
   display: none;
 }
@@ -9,13 +13,26 @@ table {
   font-size: 2em;
 }
 
-#headline a {
-  color: white;
+th {
   font-weight: 400;
+}
+
+#headline {
+  font-size: 2em;
+  color: white;
+  a {
+    color: white;
+    font-weight: 400;
+  }
+}
+
+td a {
+  text-decoration: none !important;
 }
 
 h3#timer {
   color: $brand-warning;
+  font-size: 2em;
 }
 .alert-warning {
     margin-top: 20px !important;
@@ -38,6 +55,9 @@ p,label {
 @media only screen 
 and (min-device-width : 375px) 
 and (max-device-width : 667px) {
+  #timer{
+    float: left !important;
+  }
     p,label {
       font-size: 1em;
     }

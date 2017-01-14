@@ -10,7 +10,6 @@ block content
         a#authenticate.btn.btn-primary.btn-lg.hidden(href="/dashboard") Begin Authentication
   script.
     $(function(){
-
       $("#authenticate").on("click", function(e){
         $.post( "/start", function( data ) {
           console.log('req sent to start timer')
@@ -28,7 +27,7 @@ block content
                 showCursor: false,
                 onStringTyped: function() {
                   $(".instructions").typed({
-                      strings: ["You'll have 3 hours to complete before your application site self-destructs."],
+                      strings: ["You'll have 3 hours to complete before your application self-destructs."],
                       typeSpeed: 0,
                       showCursor: false,
                       onStringTyped: function() {

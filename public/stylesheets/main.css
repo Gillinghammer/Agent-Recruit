@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 .text-primary,
 .text-primary:hover {
   color: #2A9FD6; }
@@ -150,18 +150,31 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron h5, .jumbotron h6 {
   color: #fff; }
 
+body {
+  font-weight: 300; }
+
 .hidden {
   display: none; }
 
 table {
   font-size: 2em; }
 
-#headline a {
-  color: white;
+th {
   font-weight: 400; }
 
+#headline {
+  font-size: 2em;
+  color: white; }
+  #headline a {
+    color: white;
+    font-weight: 400; }
+
+td a {
+  text-decoration: none !important; }
+
 h3#timer {
-  color: #FF8800; }
+  color: #FF8800;
+  font-size: 2em; }
 
 .alert-warning {
   margin-top: 20px !important; }
@@ -178,6 +191,8 @@ p, label {
   font-size: 1.4em; }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  #timer {
+    float: left !important; }
   p, label {
     font-size: 1em; }
   .well p {
