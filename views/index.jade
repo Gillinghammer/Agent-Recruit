@@ -53,8 +53,8 @@ block content
       $.get('/game', function(data) {
         var startTime = new Date(data.start)
         var deadline= new Date ( startTime );
-        deadline.setHours ( startTime.getHours() + 3 );
-        //- deadline = new Date(startTime.getTime() + 1*60000);
+        //- deadline.setHours( startTime.getHours() + 3 );
+        deadline = new Date(startTime.getTime() + (60000*60)*3;
         console.log("deadline: ", deadline)
         $("#timer")
           .countdown(deadline, function(event) {
