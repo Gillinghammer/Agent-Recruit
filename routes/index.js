@@ -20,7 +20,7 @@ router.post('/phone', function(req,res,next){
 
   })
   res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end("<?xml version='1.0' encoding='UTF-8'?><Response><Say voice='alice' language='ru-RU'>Analyzing voice now. Voice authentication is complete. You will receive a text message with your authorization code. Goodbye. </Say></Response>");
+  res.end("<?xml version='1.0' encoding='UTF-8'?><Response><Say voice='alice' language='en'>Analyzing voice now. Voice authentication is complete. You will receive a text message with your authorization code. Goodbye.</Say><Sms from='+441133204793' to=" + req.body.Caller + ">4680</Sms></Response>");
 });
 /* GET home page. */
 router.get('/', function(req,res,next){
