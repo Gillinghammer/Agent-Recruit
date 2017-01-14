@@ -35,12 +35,11 @@ html(lang="en")
         }
 
         $.get('/game', function(data) {
-          console.log(data.start)
+
           var startTime = new Date(data.start)
           var deadline= new Date ( startTime );
-          //- deadline.setHours ( startTime.getHours() + 3 );
-          deadline = new Date(startTime.getTime() + 1*60000);
-          console.log("deadline: ", deadline)
+          deadline.setHours ( startTime.getHours() + 3 );
+          //- deadline = new Date(startTime.getTime() + 1*60000);
           $("#timer")
             .countdown(deadline, function(event) {
               $(this).text(

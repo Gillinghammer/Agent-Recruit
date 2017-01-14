@@ -175,6 +175,12 @@ th {
     color: white;
     font-weight: 400; }
 
+.well span {
+  font-weight: 700; }
+
+img.ana {
+  padding-top: 58px; }
+
 td a {
   text-decoration: none !important; }
 

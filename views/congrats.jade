@@ -3,27 +3,29 @@ extends layout
 block content
   .row
     .col-sm-4
-      img(src="/images/ana.jpg", width="100%")
+      img(class="ana", src="/images/ana.jpg", width="100%")
     .col-sm-8
       p= doc
       h2 Dossier
       .well
-        p Name: Ana Oliviera
+        p <span>[ Name: ]</span> Ana Oliveira
       .well
-        p Eye-color: Brown
+        p <span>[ Eye-color: ]</span> Brown
       .well
-        p Height: 1.70m
+        p <span>[ Height: ]</span> 1.65m
       .well
-        p Birth date: 1988-06-16
+        p <span>[ Birth date:]</span>  1988-06-16
   .row
     .col-sm-12
       br
       .well
-        p Languages Spoken: Portuguese(native), English, Spanish
+        p <span>[ Birthplace: ]</span> Lisbon, Portugal
       .well
-        p Romantic Interests: Colin Gillingham
+        p <span>[ Languages spoken: ]</span> Portuguese(native), English, Spanish
       .well
-        p Voice sample
+        p <span>[ Romantic interests: ]</span> Colin Gillingham
+      .well
+        p <span>[ Voice sample: ]</span>
         br
         audio(controls)
           source(src="#{ url }", type="audio/wav", class="sound")

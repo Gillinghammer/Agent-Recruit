@@ -47,26 +47,3 @@ block content
                 td <a href="/puzzles/4" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
         .progress.progress-striped
           .progress-bar.progress-bar-info(style="width: #{ complete }%" )
-  script.
-    $(document).ready(function(){
-
-      $.get('/game', function(data) {
-        var startTime = new Date(data.start)
-        var deadline= new Date ( startTime );
-        //- deadline.setHours( startTime.getHours() + 3 );
-        deadline = new Date(startTime.getTime() + (60000*60)*3;
-        console.log("deadline: ", deadline)
-        $("#timer")
-          .countdown(deadline, function(event) {
-            $(this).text(
-              "self destruct in: " + event.strftime('%H:%M:%S')
-            );
-          }).on('finish.countdown', function() {
-                $("#timer").text("Time is up");
-                $('.objectives').addClass('hidden');
-                $('#subheadline').addClass('hidden');
-                $('div.progress').addClass('hidden');
-          });
-      })
-
-    });
