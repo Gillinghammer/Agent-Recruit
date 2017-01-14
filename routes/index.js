@@ -4,8 +4,6 @@ var puzzles = require('../utils/puzzles');
 var mongoose = require('mongoose');
 var Games =  require('../models/game');
 var Call =  require('../models/call');
-var xml = require('xml');
-
 
 router.post('/phone', function(req,res,next){
   // console.log("request body: ", req.body)
