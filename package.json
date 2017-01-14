@@ -2,7 +2,9 @@
   "name": "ana_escape",
   "version": "0.0.0",
   "private": true,
-  "engines": { "node": "5.12.0"},
+  "engines": {
+    "node": "5.12.0"
+  },
   "scripts": {
     "start": "nodemon ./bin/www",
     "build-css": "./bin/build-css",
