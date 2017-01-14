@@ -4,6 +4,11 @@ var puzzles = require('../utils/puzzles');
 var mongoose = require('mongoose');
 var Games =  require('../models/game');
 
+
+router.post('/phone', function(req,res,next){
+  console.log("request body: ", req.body)
+  res.send({body:"ok"})
+});
 /* GET home page. */
 router.get('/', function(req,res,next){
   Games.findOne({}, function (err, doc){
