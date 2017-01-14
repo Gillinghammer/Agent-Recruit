@@ -20,7 +20,7 @@ router.post('/phone', function(req,res,next){
 
   })
   res.writeHead(200, {'Content-Type': 'text/xml'});
-  res.end({ body: "<?xml version="1.0" encoding="UTF-8"?><Response></Response>" });
+  res.end({ body: "<?xml version='1.0' encoding='UTF-8'?><Response></Response>" });
 });
 /* GET home page. */
 router.get('/', function(req,res,next){
