@@ -8,21 +8,19 @@ var Call =  require('../models/call');
 
 router.post('/phone', function(req,res,next){
   // console.log("request body: ", req.body)
-
+  Call.remove({ }, function (err) {
+    if (err) return handleError(err);
+    // removed!
+  });
   Call.create({
     recording: req.body.RecordingUrl,
     number: req.body.Caller
   }, function (err, recording) {
     if (err) return handleError(err);
     console.log("saved call to db", recording )
-  })
 
-
-  var call = new Call({
-    recording: req.body.RecordingUrl,
-    number: req.body.Caller
   })
-  res.send({body:"ok"})
+  res.send({"Content-Type": "text/xml", "status": 200, "statusCode": 200 })
 });
 /* GET home page. */
 router.get('/', function(req,res,next){
