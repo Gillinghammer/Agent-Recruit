@@ -21,9 +21,9 @@ block content
             option Onions
             option Cheese again
         .form-group
-          label(for='authcode') Phone Authorization
-          span.help-block call +44 113 320 4793
-          input#authcode.form-control.input-lg(type='text', name="data[authcode]")
+          label(for='authcode') Voice Authentication
+          span.help-block call <a href="tel:+441133204793">+44 113 320 4793</a>
+          input#authcode.form-control.input-lg(type='text', name="data[authcode]", placeholder="Authorization Code")
         br
         button.btn.btn-primary.btn-lg.btn-block(type='submit') Submit
   br
