@@ -51,7 +51,6 @@ block content
     $(document).ready(function(){
 
       $.get('/game', function(data) {
-        console.log(data.start)
         var startTime = new Date(data.start)
         var deadline= new Date ( startTime );
         //- deadline.setHours ( startTime.getHours() + 3 );

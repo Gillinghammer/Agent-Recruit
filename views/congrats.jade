@@ -1,12 +1,32 @@
 extends layout
 
 block content
-  div(class="inner cover")
-    h3(class="cover-heading") Congrats!
-    
+  .row
+    .col-sm-4
+      img(src="/images/ana.jpg", width="100%")
+    .col-sm-8
+      p= doc
+      h2 Dossier
+      .well
+        p Name: Ana Oliviera
+      .well
+        p Eye-color: Brown
+      .well
+        p Height: 1.70m
+      .well
+        p Birth date: 1988-06-16
+  .row
+    .col-sm-12
+      br
+      .well
+        p Languages Spoken: Portuguese(native), English, Spanish
+      .well
+        p Romantic Interests: Colin Gillingham
+      .well
+        p Voice sample
+        br
+        audio(controls)
+          source(src="#{ url }", type="audio/wav", class="sound")
+        
   br
   p(class="text-danger") #{ msg }
-  script.
-    $(document).ready(function(){
-      
-    });

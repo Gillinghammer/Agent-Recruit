@@ -23,10 +23,7 @@ block content
           getLocation();
       });
     });
-
-
     function getLocation() {
-
       if (navigator.geolocation) {
         //- navigator.geolocation.getCurrentPosition(showPosition());
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -40,7 +37,6 @@ block content
       submitDistance(distance)
     }
     function submitDistance(distance) {
-    console.log("distance! ", distance)
       if(distance <= 100 ){
         $.ajax({
           url: '3',

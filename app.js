@@ -41,20 +41,23 @@ db.once('open', function() {
   }
 
   var checkStatus = function (req, res, next) {
-    Puzzles.find({}, function(err, data){
-      if(err) res.send(err);
-      var completed = 0;
-      for( var i = 0; i < data.length; ++i ){
-        if( data[i].pass )
-          completed++;
-      };
-      if( completed > 3 ) {
-        // res.send("hooray you won!")
-        res.render('congrats');
-      } else {
-        next()
-      } 
-    });
+    // console.log('req url', req.path )
+    if(req.params.url != "/congrats") {
+      Puzzles.find({}, function(err, data){
+        if(err) res.send(err);
+        var completed = 0;
+        for( var i = 0; i < data.length; ++i ){
+          if( data[i].pass )
+            completed++;
+        };
+        if( completed > 3 ) {
+          res.re('congrats');
+        } else {
+          next()
+        } 
+      });
+    }
+    
   }
 
   // local app variables
