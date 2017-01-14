@@ -4,6 +4,7 @@ var puzzles = require('../utils/puzzles');
 var mongoose = require('mongoose');
 var Games =  require('../models/game');
 var Call =  require('../models/call');
+var xml = require('xml');
 
 
 router.post('/phone', function(req,res,next){
@@ -20,7 +21,8 @@ router.post('/phone', function(req,res,next){
     console.log("saved call to db", recording )
 
   })
-  res.send({"Content-Type": "text/xml", "status": 200, "statusCode": 200 })
+  res.set('Content-Type', 'text/xml');
+  res.send({"statusCode": 200});
 });
 /* GET home page. */
 router.get('/', function(req,res,next){
