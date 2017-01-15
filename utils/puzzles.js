@@ -17,7 +17,7 @@ module.exports = {
   update: function(req, res){
     switch( req.url.slice(-1) ) {
         case "1":
-            if(req.body.data.birthDate === '1988-06-16' && req.body.data.passport === "N872598" && req.body.data.pizza === "Onions" && req.body.data.authcode === "4680") {
+            if(req.body.data.birthDate === '1988-06-16' && req.body.data.passport.toUpperCase() === "N872598" && req.body.data.pizza === "Onions" && req.body.data.authcode === "4680") {
 
                   Puzzles.findOne({ game: req.url.slice(-1) }, function (err, doc){
                     doc.pass = true;

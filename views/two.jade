@@ -43,11 +43,7 @@ block content
       var secretChars = $.map(secret.split(""), function(i) {
         return i.charCodeAt(0)
       });
-      console.log("decoder key char values:", decoderChars )
-      console.log("secret key char values:", secretChars )
-      console.log("decoder Total:", decoderTotal )
       var encryptionNumber = (decoderTotal / decoderKey.split("").length) / 2
-      console.log("encryption Number", encryptionNumber)
       var encryptedChars = $.map(secretChars, function(i) {
         if( encryptionNumber >= i ) {
          return encryptionNumber - i
@@ -58,11 +54,10 @@ block content
       var encodedText = $.map(encryptedChars, function(i){
         return String.fromCharCode(i)
       })
-      console.log("your encryptedChars: ", encryptedChars )
-      console.log("your encrypted Text: ", encodedText.join("") )
       $("#encrypted").text("[ encrypted riddle ]: " + encodedText.join(""))
       $("#decode").on("click", function(event) {
-        var guessChars = $.map( $("#key").val().split(""), function(i) {
+        var key = $("#key").val().toUpperCase()
+        var guessChars = $.map( key.split(""), function(i) {
           return i.charCodeAt(0)
         } )
         var guessTotal = 0;
