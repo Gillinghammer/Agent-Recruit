@@ -1,34 +1,66 @@
 extends layout
 
 block content
-  .row
-    .col-sm-4
-      img(class="ana", src="/images/ana.jpg", width="100%")
-    .col-sm-8
-      p= doc
-      h2 Dossier
-      .well
-        p <span>[ Name: ]</span> Ana Oliveira
-      .well
-        p <span>[ Eye-color: ]</span> Brown
-      .well
-        p <span>[ Height: ]</span> 1.65m
-      .well
-        p <span>[ Birth date:]</span>  1988-06-16
-  .row
-    .col-sm-12
-      br
-      .well
-        p <span>[ Birthplace: ]</span> Lisbon, Portugal
-      .well
-        p <span>[ Languages spoken: ]</span> Portuguese(native), English, Spanish
-      .well
-        p <span>[ Romantic interests: ]</span> Colin Gillingham
-      .well
-        p <span>[ Voice sample: ]</span>
+  #congrats
+    #animation.row
+      .col-sm-12
+        h3 Approving your application now...
         br
-        audio(controls)
-          source(src="#{ url }", type="audio/wav", class="sound")
-        
-  br
-  p(class="text-danger") #{ msg }
+        img(src="/images/loading.gif", width="133px")
+    #dossier.row.hidden.animated.fadeIn
+      .col-sm-12
+        .well
+          span [ Application Status: ]
+          p Agent Approved
+        .row
+          .col-xs-3.avatar
+            img(class="ana", src="/images/ana.jpg")
+          .col-xs-9
+            .well
+              span [ Full Name: ]
+              p Ana Filipa Viegas de Oliveira 
+        .row
+          .col-xs-6.nopadding
+            .well
+              span [ Eye-color: ] 
+              p Brown
+          .col-xs-6.nopadding
+            .well
+              span [ Height: ]
+              p 1.65 m
+        .row
+          .col-xs-6.nopadding
+            .well
+              span [ Birth date: ]
+              p 1988-06-16
+          .col-xs-6.nopadding
+            .well
+              span [ Birthplace: ]
+              p Lisbon, Portugal
+        .row
+          .col-xs-6.nopadding
+            .well
+              span [ Languages: ]
+              p Portuguese(native), English, Spanish
+          .col-xs-6.nopadding
+            .well
+              span [ Known ]
+              br
+              span [ Associates: ]
+              p Colin Gillingham
+        .row
+          .col-sm-12
+            .well
+              p <span>[ Voice sample: ]</span>
+              br
+              audio(controls)
+                source(src="#{ url }", type="audio/wav", class="sound")
+    br
+    p(class="text-danger") #{ msg }
+  script.
+    $(document).ready(function(){
+      setTimeout(function(){ 
+        $("#animation").addClass("hidden");
+        $("#dossier").removeClass("hidden");
+      }, 5000);
+    });

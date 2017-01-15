@@ -10,7 +10,6 @@ block content
           br
           br
           button(id="send", class="btn btn-primary btn-lg btn-block") Send Coordinates
-        .panel-footer
           p#response
           p#error
   script.
@@ -33,11 +32,11 @@ block content
     }
     function showPosition(position) {
       var distance = getDistanceFromLatLonInKm(savedLat,savedLong,position.coords.latitude,position.coords.longitude)
-      x.innerHTML = "<br>You are " + Math.round((distance*1000)) + " meters away.";
+      x.innerHTML = "<br>Distance to target: " + Math.round((distance*1000)) + " meters";
       submitDistance(distance)
     }
     function submitDistance(distance) {
-      if(distance <= 100 ){
+      if(distance <= 0.5 ){
         $.ajax({
           url: '3',
           type: 'POST',
@@ -48,7 +47,7 @@ block content
             }
           })
       } else {
-        $('#error').text("Not close enough yet... No Cheating!")
+        $('#error').text("Acceptable range: 50 meters")
       }
       
     }

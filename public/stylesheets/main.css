@@ -153,6 +153,28 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 a.btn {
   font-weight: 700; }
 
+.hidden {
+  display: none; }
+
+label {
+  font-size: 1.5em;
+  font-weight: 300 !important; }
+
+.nopadding {
+  padding: 0 10px 0 5px !important;
+  margin: 0 !important; }
+
+#layout #headline {
+  font-size: 2em;
+  color: white; }
+  #layout #headline a {
+    color: white;
+    font-weight: 400; }
+
+#layout #divider {
+  display: block;
+  width: 100%; }
+
 #layout #timer {
   color: #CC0000;
   text-align: right; }
@@ -174,29 +196,17 @@ a.btn {
 #two #encrypted {
   word-break: break-all; }
 
-.hidden {
-  display: none; }
+#four blockquote p {
+  font-weight: 300; }
 
-#headline {
-  font-size: 2em;
-  color: white; }
-  #headline a {
-    color: white;
-    font-weight: 400; }
-
-.well span {
-  font-weight: 700; }
-
-img.ana {
-  padding-top: 58px; }
-
-.alert-warning {
-  margin-top: 20px !important; }
-
-p, label {
-  font-size: 1.6em;
-  color: #ADAFAE;
-  font-weight: 300 !important; }
-
-.well p {
-  font-size: 1.4em; }
+#congrats {
+  text-align: center; }
+  #congrats .avatar {
+    display: block; }
+    #congrats .avatar img {
+      max-width: 120%; }
+  #congrats span {
+    font-weight: 700;
+    font-size: 1.25em; }
+  #congrats p {
+    margin: 0; }

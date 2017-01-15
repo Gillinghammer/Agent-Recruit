@@ -7,16 +7,36 @@ a.btn {
     font-weight: 700;
   }
 
-// h3 {
-//   font-weight: 500;
-//   font-size: 1em;
-// }
+  .hidden {
+    display: none;
+  }
 
+label {
+  font-size: 1.5em;
+  font-weight: 300 !important;
+}
+
+.nopadding {
+   padding: 0 10px 0 5px !important;
+   margin: 0 !important;
+}
 
 // view templates
 
 // layout / layout.jade
 #layout {
+  #headline {
+    font-size: 2em;
+    color: white;
+    a {
+      color: white;
+      font-weight: 400;
+    }
+  }
+  #divider {
+    display: block;
+    width: 100%;
+  }
   #timer {
     color: $brand-danger;
     text-align: right;
@@ -54,66 +74,29 @@ a.btn {
   }
 }
 
-
-.hidden {
-  display: none;
-}
-
-
-#headline {
-  font-size: 2em;
-  color: white;
-  a {
-    color: white;
-    font-weight: 400;
+// fine print / four.jade
+#four {
+  blockquote {
+    p {
+      font-weight: 300;
+    }
   }
 }
 
-.well span {
-  font-weight: 700;
-}
-
-img.ana {
-  padding-top: 58px;
-}
-
-.alert-warning {
-    margin-top: 20px !important;
+// congrats / congrats.jade
+#congrats {
+  text-align: center;
+  .avatar {
+    display: block;
+    img {
+      max-width: 120%;
+    }
   }
-
-p,label {
-  font-size: 1.6em;
-  color: $gray-lighter;
-  font-weight: 300 !important;
+  span {
+    font-weight: 700;
+    font-size: 1.25em;
+  }
+  p {
+    margin: 0
+  }
 }
-
-.well p {
-  font-size: 1.4em;
-}
-
-// // mobile devices
-
-// @media only screen 
-// and (min-device-width : 375px) 
-// and (max-device-width : 667px) {
-//   #timer{
-//     float: left !important;
-//   }
-//     p,label {
-//       font-size: 1em;
-//     }
-//   .well {
-//     p {
-//       font-size: 1em;
-//     }
-//   }
-//   table {
-//     font-size: 1.2em;
-//   }
-//   h1, h3 {
-//     font-size: 2em !important;
-//   }
-//   h3#timer {
-//     font-size: 1em;
-//   }       
-// }
