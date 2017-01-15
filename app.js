@@ -19,9 +19,7 @@ https.createServer({
       cert: fs.readFileSync('cert.pem')
     }, app).listen(3000);
 
-console.log(process.env.AGENT_DB_USER)
-
-mongoose.connect("mongodb://" + process.env.AGENT_DB_PASS +":" + process.env.AGENT_DB_PASS + "@ds011382.mlab.com:11382/anaescape");
+mongoose.connect("mongodb://" + process.env.AGENT_DB_ADMIN +":" + process.env.AGENT_DB_PASS + "@ds011382.mlab.com:11382/anaescape");
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
