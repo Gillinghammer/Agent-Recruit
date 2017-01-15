@@ -150,23 +150,32 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron h5, .jumbotron h6 {
   color: #fff; }
 
-body {
-  font-weight: 300; }
+a.btn {
+  font-weight: 700; }
 
-span.help-block {
-  font-size: 1.2em; }
+#layout #timer {
+  color: #CC0000;
+  text-align: right; }
 
-p.intro-text {
+#welcome .jumbotron {
+  padding-top: 10px; }
+
+#welcome p {
   font-weight: 300; }
+  #welcome p span {
+    font-weight: 700; }
+
+#dashboard table {
+  font-size: 1.5em;
+  border: 2px solid #282828; }
+  #dashboard table a {
+    text-decoration: none; }
+
+#two #encrypted {
+  word-break: break-all; }
 
 .hidden {
   display: none; }
-
-table {
-  font-size: 2em; }
-
-th {
-  font-weight: 400; }
 
 #headline {
   font-size: 2em;
@@ -181,13 +190,6 @@ th {
 img.ana {
   padding-top: 58px; }
 
-td a {
-  text-decoration: none !important; }
-
-h3#timer {
-  color: #FF8800;
-  font-size: 2em; }
-
 .alert-warning {
   margin-top: 20px !important; }
 
@@ -196,22 +198,5 @@ p, label {
   color: #ADAFAE;
   font-weight: 300 !important; }
 
-#encrypted {
-  color: #ADAFAE; }
-
 .well p {
   font-size: 1.4em; }
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  #timer {
-    float: left !important; }
-  p, label {
-    font-size: 1em; }
-  .well p {
-    font-size: 1em; }
-  table {
-    font-size: 1.2em; }
-  h1, h3 {
-    font-size: 2em !important; }
-  h3#timer {
-    font-size: 1em; } }

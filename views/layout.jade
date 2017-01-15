@@ -3,20 +3,21 @@ html(lang="en")
   head
     title Agent Recruit
     meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0")
     script(src="/javascripts/jquery-3.1.1.min.js")
     link(rel='stylesheet', href='/stylesheets/main.css')
     link(rel='stylesheet', href='/stylesheets/animate.css')
     link(rel='stylesheet', href='https://bootswatch.com/cyborg/bootstrap.min.css')
     link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css", rel="stylesheet")
   body.container.animated.fadeIn
-    .row
+    #layout.row
       .col-lg-12
         .row
           .col-sm-6
-            h3#headline <a href="/"><i class="fa fa-long-arrow-left"></i> Agent dashboard</a>
+            h4#timer
           .col-sm-6
-            h3#timer.pull-right= start
+            h3#headline <a href="/"><i class="fa fa-long-arrow-left"></i> Agent Dashboard</a>
+            hr
     block content
     <a href="/reset">bla blah copyright 2017</a>
     script.
@@ -43,7 +44,7 @@ html(lang="en")
           $("#timer")
             .countdown(deadline, function(event) {
               $(this).text(
-                "self destruct in: " + event.strftime('%H:%M:%S')
+                "[ -" + event.strftime('%H:%M:%S') +" ]"
               );
             }).on('finish.countdown', function() {
                   $("#timer").text("Time is up");

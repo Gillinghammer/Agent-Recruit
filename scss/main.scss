@@ -1,29 +1,64 @@
 @import "_variables";
 @import "_bootswatch";
 
-body {
-  font-weight: 300;
+// global styles
+
+a.btn {
+    font-weight: 700;
+  }
+
+// h3 {
+//   font-weight: 500;
+//   font-size: 1em;
+// }
+
+
+// view templates
+
+// layout / layout.jade
+#layout {
+  #timer {
+    color: $brand-danger;
+    text-align: right;
+  }
 }
 
-span.help-block {
-  font-size: 1.2em;
+// welcome / welcome.jade
+#welcome {
+  .jumbotron {
+    padding-top: 10px;
+  }
+  p {
+    font-weight: 300;
+    span {
+      font-weight: 700;
+    }
+  }
 }
 
-p.intro-text {
-  font-weight: 300;
+// dashboard / index.jade
+#dashboard {
+  table {
+    font-size: 1.5em;
+    border: 2px solid $gray-dark;
+    a {
+      text-decoration: none;
+    }
+  }
 }
+
+// encrypted / two.jade
+#two {
+  #encrypted {
+    word-break: break-all;
+  }
+}
+
 
 .hidden {
   display: none;
 }
 
-table {
-  font-size: 2em;
-}
-
-th {
-  font-weight: 400;
-}
 
 #headline {
   font-size: 2em;
@@ -42,14 +77,6 @@ img.ana {
   padding-top: 58px;
 }
 
-td a {
-  text-decoration: none !important;
-}
-
-h3#timer {
-  color: $brand-warning;
-  font-size: 2em;
-}
 .alert-warning {
     margin-top: 20px !important;
   }
@@ -60,35 +87,33 @@ p,label {
   font-weight: 300 !important;
 }
 
-#encrypted {
-  color: $gray-lighter;
-}
-
 .well p {
   font-size: 1.4em;
 }
 
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) {
-  #timer{
-    float: left !important;
-  }
-    p,label {
-      font-size: 1em;
-    }
-  .well {
-    p {
-      font-size: 1em;
-    }
-  }
-  table {
-    font-size: 1.2em;
-  }
-  h1, h3 {
-    font-size: 2em !important;
-  }
-  h3#timer {
-    font-size: 1em;
-  }       
-}
+// // mobile devices
+
+// @media only screen 
+// and (min-device-width : 375px) 
+// and (max-device-width : 667px) {
+//   #timer{
+//     float: left !important;
+//   }
+//     p,label {
+//       font-size: 1em;
+//     }
+//   .well {
+//     p {
+//       font-size: 1em;
+//     }
+//   }
+//   table {
+//     font-size: 1.2em;
+//   }
+//   h1, h3 {
+//     font-size: 2em !important;
+//   }
+//   h3#timer {
+//     font-size: 1em;
+//   }       
+// }

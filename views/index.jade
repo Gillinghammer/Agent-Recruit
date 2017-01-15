@@ -1,49 +1,49 @@
 extends layout
 
 block content
-  .row
+  #dashboard.row
     .col-lg-12
-      #dashboard
-        h3#subheadline Agent dashboard
+        h4 Agent Dashboard
         table.objectives.table.table-striped.table-hover
           thead
             tr
-              th #
               th Objectives
-              th Status
+              th
               th
           tbody
             tr(class=" #{ data[0].pass ? 'info' : '' } ")
-              td 1
-              td <a href="/puzzles/1">Authenticate <i class="fa fa-eye"></i></a>
-              td #{ data[0].pass ? 'Complete' : 'Incomplete' }
+              td <a href="/puzzles/1">Authenticate</a> <i class="fa fa-eye"></i>
+              td <i class="fa fa-#{ data[0].pass ? "check" : 'times' }"></i>
               if data[0].pass
                 td
               else
                 td <a href="/puzzles/1" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
             tr(class=" #{ data[1].pass ? 'info' : '' } ")
-              td 2
-              td <a href="/puzzles/2">Encryption <i class="fa fa-unlock-alt"></i></a>
-              td #{ data[1].pass ? 'Complete' : 'Incomplete' }
+              td <a href="/puzzles/2">Encryption</a> <i class="fa fa-unlock-alt"></i>
+              td <i class="fa fa-#{ data[1].pass ? "check" : 'times' }"></i>
               if data[1].pass
                 td
               else
                 td <a href="/puzzles/2" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
             tr(class=" #{ data[2].pass ? 'info' : '' } ")
-              td 3
-              td <a href="/puzzles/3">Geo-Location <i class="fa fa-globe"></i></a>
-              td #{ data[2].pass ? 'Complete' : 'Incomplete' }
+              td <a href="/puzzles/3">Geo-Location</a> <i class="fa fa-globe"></i>
+              td <i class="fa fa-#{ data[2].pass ? "check" : 'times' }"></i>
               if data[2].pass
                 td
               else
                 td <a href="/puzzles/3" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
             tr(class=" #{ data[3].pass ? 'info' : '' } ")
-              td 4
-              td <a href="/puzzles/4">Fine Print <i class="fa fa-puzzle-piece"></i></a>
-              td #{ data[3].pass ? 'Complete' : 'Incomplete' }
+              td <a href="/puzzles/4">Fine Print</a> <i class="fa fa-puzzle-piece"></i>
+              td <i class="fa fa-#{ data[3].pass ? "check" : 'times' }"></i>
               if data[3].pass
                 td
               else
                 td <a href="/puzzles/4" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
-        .progress.progress-striped
-          .progress-bar.progress-bar-info(style="width: #{ complete }%" )
+        #progress
+          if complete === 100
+            a.btn.btn-default.btn-block.btn-lg(href="/congrats") Submit for acceptance
+            br
+          else
+            p application progress:
+            .progress.progress-striped
+              .progress-bar.progress-bar-info(style="width: #{ complete }%" )

@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  div(class="inner cover")
-    h4(class="cover-heading") Solve the riddle
+  #two
+    h4 Decrypt and Solve
     br
     div(class="row")
       div(class="col-sm-8")
@@ -14,11 +14,10 @@ block content
           .form-group
             label(for='key') Decoder Key
             .input-group
-              input#key.form-control.input-lg(type='text', name="data[key]" )
+              input#key.form-control.input-lg(type='text', name="data[key]", placeholder="6 digit code" )
               span.input-group-btn
                 button#decode.btn.btn-info.btn-lg(type='button') Decode!
-            span.help-block hint: Para Lisboa FR1882
-          br
+            span.help-block hint: <i class="fa fa-plane"></i> Para Lisboa FR1882
           div
             p(id="result")
           .form-group
