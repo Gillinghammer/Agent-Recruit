@@ -21,12 +21,18 @@ label {
    margin: 0 !important;
 }
 
+hr {
+  margin: 0 !important;
+  padding-bottom: 20px;
+}
+
 // view templates
 
 // layout / layout.jade
 #layout {
   #headline {
-    font-size: 2em;
+    padding-top: 8px;
+    font-size: 1.5em;
     color: white;
     a {
       color: white;
@@ -38,6 +44,7 @@ label {
     width: 100%;
   }
   #timer {
+    font-size: 1.6em;
     color: $brand-danger;
     text-align: right;
   }

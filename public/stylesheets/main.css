@@ -164,8 +164,13 @@ label {
   padding: 0 10px 0 5px !important;
   margin: 0 !important; }
 
+hr {
+  margin: 0 !important;
+  padding-bottom: 20px; }
+
 #layout #headline {
-  font-size: 2em;
+  padding-top: 8px;
+  font-size: 1.5em;
   color: white; }
   #layout #headline a {
     color: white;
@@ -176,6 +181,7 @@ label {
   width: 100%; }
 
 #layout #timer {
+  font-size: 1.6em;
   color: #CC0000;
   text-align: right; }
 
