@@ -44,15 +44,15 @@ html(lang="en")
 
           var startTime = new Date(data.start)
           var deadline= new Date ( startTime );
-          deadline.setHours ( startTime.getHours() + 3 );
-          //- deadline = new Date(startTime.getTime() + 1*60000);
+          //- deadline.setHours ( startTime.getHours() + 3 );
+          deadline = new Date(startTime.getTime() + 1*60000);
           $("#timer")
             .countdown(deadline, function(event) {
               $(this).html(
                 "<i class='fa fa-hourglass-half'></i> -" + event.strftime('%H:%M:%S')
               );
             }).on('finish.countdown', function() {
-                  $("#timer").text("Time is up");
+                  $("#timer").html("<i class='fa fa-hourglass-end'></i> Time is up");
                   $('.objectives').addClass('hidden');
                   $('#subheadline').addClass('hidden');
                   $('div.progress').addClass('hidden');
