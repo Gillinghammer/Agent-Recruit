@@ -201,6 +201,8 @@ hr {
 #dashboard table {
   font-size: 1.5em;
   border: 2px solid #282828; }
+  #dashboard table td:nth-child(1), #dashboard table td:nth-child(2) {
+    padding-top: 12px; }
   #dashboard table a {
     text-decoration: none; }
 
