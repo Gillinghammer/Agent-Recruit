@@ -48,8 +48,8 @@ html(lang="en")
           //- deadline = new Date(startTime.getTime() + 1*60000);
           $("#timer")
             .countdown(deadline, function(event) {
-              $(this).text(
-                "-" + event.strftime('%H:%M:%S')
+              $(this).html(
+                "<i class='fa fa-hourglass-half'></i> -" + event.strftime('%H:%M:%S')
               );
             }).on('finish.countdown', function() {
                   $("#timer").text("Time is up");
