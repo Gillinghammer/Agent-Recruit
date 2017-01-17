@@ -6,18 +6,14 @@ var Games =  require('../models/game');
 var Call =  require('../models/call');
 
 router.post('/phone', function(req,res,next){
-  // console.log("request body: ", req.body)
   Call.remove({ }, function (err) {
     if (err) return handleError(err);
-    // removed!
   });
   Call.create({
     recording: req.body.RecordingUrl,
     number: req.body.Caller
   }, function (err, recording) {
     if (err) return handleError(err);
-    console.log("saved call to db", recording )
-
   })
   res.writeHead(200, {'Content-Type': 'text/xml'});
   res.end("<?xml version='1.0' encoding='UTF-8'?><Response><Say voice='alice' language='en'>Analyzing voice now. Voice authentication is complete. You will receive a text message with your authorization code. Goodbye.</Say><Sms from='+441133204793' to='" + req.body.Caller + "'> authorization code: 4680 </Sms></Response>");
@@ -54,7 +50,6 @@ router.get('/call', function(req,res) {
 })
 router.post('/start',function(req,res) {
   Games.findOne({}, function (err, doc){
-    console.log(doc)
     if(doc.start === null ) {
       doc.start = new Date()
       doc.save(); 

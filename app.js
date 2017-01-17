@@ -34,7 +34,6 @@ db.once('open', function() {
 
   var getTime = function (req, res, next) {
     Games.findOne({}, function(err, data){
-      console.log("timer: ", data.start)
       res.locals.timer = data.start;
     })
     next()
