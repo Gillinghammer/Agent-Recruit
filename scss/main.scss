@@ -99,7 +99,21 @@ hr {
       max-width: 120%;
     }
   }
+  .well {
+    border: 1px solid $brand-info;
+  }
+  blockquote {
+      font-weight: 300;
+      font-size: 1.3em;
+      line-height: 1.75em;
+    span {
+      font-weight: 300;
+      font-size: 1em;
+      font-style: italic;
+    }
+  }
   span {
+    color: $brand-info;
     font-weight: 700;
     font-size: 1.25em;
   }

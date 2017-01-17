@@ -211,7 +211,18 @@ hr {
     display: block; }
     #congrats .avatar img {
       max-width: 120%; }
+  #congrats .well {
+    border: 1px solid #9933CC; }
+  #congrats blockquote {
+    font-weight: 300;
+    font-size: 1.3em;
+    line-height: 1.75em; }
+    #congrats blockquote span {
+      font-weight: 300;
+      font-size: 1em;
+      font-style: italic; }
   #congrats span {
+    color: #9933CC;
     font-weight: 700;
     font-size: 1.25em; }
   #congrats p {

@@ -8,6 +8,13 @@ block content
         br
         img(src="/images/loading.gif", width="133px")
     #dossier.row.hidden.animated.fadeIn
+      .row
+        .col-xs-12
+          p Because I owe you a note...
+          blockquote
+            p I am amazed and impressed by your ability to to pierce complex human behavior with precision. I look forward to all our great conversations and the thoughts they provoke. The way you look at the world with passion and curiosity inspires me to think bigger. A wise man once said <span>"The world is a book, and those who don't travel only read one page..."</span>, I'm excited to read more of that book with you.
+            small <3 <cite>Colin</cite>
+        br
       .col-sm-12
         .well
           span [ Application Status: ]
@@ -51,7 +58,9 @@ block content
         .row
           .col-sm-12
             .well
-              p <span>[ Voice sample: ]</span>
+              span [ Voice Sample: ]
+              br
+              img(src="http://nothinpersonal.ca/portfolio/Russ/images/wave.png", width="300px")
               br
               audio(controls)
                 source(src="#{ url }", type="audio/wav", class="sound")
