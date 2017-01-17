@@ -12,28 +12,28 @@ block content
               th
           tbody
             tr(class=" #{ data[0].pass ? 'info' : '' } ")
-              td <a href="/puzzles/1">Authenticate</a> <i class="fa fa-eye"></i>
+              td <i class="fa fa-eye"></i> <a href="/puzzles/1">Authenticate</a>
               td <i class="fa fa-#{ data[0].pass ? "check" : 'times' }"></i>
               if data[0].pass
                 td
               else
                 td <a href="/puzzles/1" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
             tr(class=" #{ data[1].pass ? 'info' : '' } ")
-              td <a href="/puzzles/2">Encryption</a> <i class="fa fa-unlock-alt"></i>
+              td <i class="fa fa-key"></i> <a href="/puzzles/2">Encryption</a>
               td <i class="fa fa-#{ data[1].pass ? "check" : 'times' }"></i>
               if data[1].pass
                 td
               else
                 td <a href="/puzzles/2" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
             tr(class=" #{ data[2].pass ? 'info' : '' } ")
-              td <a href="/puzzles/3">Geo-Location</a> <i class="fa fa-globe"></i>
+              td <i class="fa fa-map-marker"></i> <a href="/puzzles/3">Geo-Location</a>
               td <i class="fa fa-#{ data[2].pass ? "check" : 'times' }"></i>
               if data[2].pass
                 td
               else
                 td <a href="/puzzles/3" class="btn btn-info">start <i class="fa fa-crosshairs"></i></a>
             tr(class=" #{ data[3].pass ? 'info' : '' } ")
-              td <a href="/puzzles/4">Fine Print</a> <i class="fa fa-puzzle-piece"></i>
+              td <i class="fa fa-binoculars"></i> <a href="/puzzles/4">Fine Print</a>
               td <i class="fa fa-#{ data[3].pass ? "check" : 'times' }"></i>
               if data[3].pass
                 td

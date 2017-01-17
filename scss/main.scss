@@ -44,8 +44,11 @@ hr {
     width: 100%;
   }
   #timer {
+    float: right;
     font-size: 1.6em;
-    color: $brand-danger;
+    font-weight: 400;
+    padding: 10px;
+    background-color: $brand-danger;
     text-align: right;
   }
 }

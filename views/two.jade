@@ -2,14 +2,14 @@ extends layout
 
 block content
   #two
-    h4 Decrypt and Solve
+    h4 <i class="fa fa-key"></i> Decrypt and Solve
     br
     div(class="row")
       div(class="col-sm-8")
         .well.well-lg
           p(id="encrypted")
     .row
-      .col-sm-4
+      .col-md-4
         form(action="./2", method="post")
           .form-group
             label(for='key') Decoder Key

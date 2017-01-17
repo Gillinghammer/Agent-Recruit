@@ -46,7 +46,7 @@ html(lang="en")
           $("#timer")
             .countdown(deadline, function(event) {
               $(this).text(
-                "[ -" + event.strftime('%H:%M:%S') +" ]"
+                "-" + event.strftime('%H:%M:%S')
               );
             }).on('finish.countdown', function() {
                   $("#timer").text("Time is up");

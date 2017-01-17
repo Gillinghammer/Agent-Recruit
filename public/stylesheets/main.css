@@ -181,8 +181,11 @@ hr {
   width: 100%; }
 
 #layout #timer {
+  float: right;
   font-size: 1.6em;
-  color: #CC0000;
+  font-weight: 400;
+  padding: 10px;
+  background-color: #CC0000;
   text-align: right; }
 
 #welcome .jumbotron {
