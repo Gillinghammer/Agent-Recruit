@@ -44,7 +44,7 @@ html(lang="en")
 
           var startTime = new Date(data.start)
           var deadline= new Date ( startTime );
-          deadline.setHours ( startTime.getHours() + 3 );
+          deadline.setHours ( startTime.getHours() + 48 );
           //- deadline = new Date(startTime.getTime() + 1*60000);
           $("#timer")
             .countdown(deadline, function(event) {
